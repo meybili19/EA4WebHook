@@ -17,11 +17,11 @@ const docTemplate = `{
     "paths": {
         "/health": {
             "get": {
-                "description": "Este endpoint devuelve el estado del servidor.",
-                "summary": "Estado del servidor",
+                "description": "This endpoint returns the health status of the server.",
+                "summary": "Server Health Check",
                 "responses": {
                     "200": {
-                        "description": "Servidor en funcionamiento",
+                        "description": "Server is running",
                         "schema": {
                             "type": "string"
                         }
@@ -31,14 +31,14 @@ const docTemplate = `{
         },
         "/webhook": {
             "post": {
-                "description": "Este endpoint recibe un webhook y ejecuta una acción.",
+                "description": "This endpoint receives a webhook and performs an action.",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [
                     "application/json"
                 ],
-                "summary": "Recibe el webhook",
+                "summary": "Webhook Receiver",
                 "parameters": [
                     {
                         "description": "Webhook Payload",
@@ -52,13 +52,13 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "200": {
-                        "description": "Webhook recibido",
+                        "description": "Webhook received",
                         "schema": {
                             "type": "string"
                         }
                     },
                     "400": {
-                        "description": "Error en el webhook",
+                        "description": "Webhook error",
                         "schema": {
                             "type": "string"
                         }

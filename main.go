@@ -4,31 +4,30 @@ import (
 	"log"
 	"net/http"
 
-	_ "EA4WebHook/docs"
+	_ "EA4WebHook/docs" // Import Swagger docs
 
-	httpSwagger "github.com/swaggo/http-swagger"
+	httpSwagger "github.com/swaggo/http-swagger" // Swagger UI package
 )
 
-// @Summary Estado del servidor
-// @Description Este endpoint devuelve el estado del servidor.
-// @Success 200 {string} string "Servidor en funcionamiento"
-// @Router /health [get]
-func healthCheck(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Webhook server is running"))
-}
-
-// @Summary Recibe el webhook
-// @Description Este endpoint recibe un webhook y ejecuta una acción.
+// @Summary Webhook Receiver
+// @Description This endpoint receives a webhook and performs an action.
 // @Accept json
 // @Produce json
 // @Param webhook body string true "Webhook Payload"
-// @Success 200 {string} string "Webhook recibido"
-// @Failure 400 {string} string "Error en el webhook"
+// @Success 200 {string} string "Webhook received"
+// @Failure 400 {string} string "Webhook error"
 // @Router /webhook [post]
 func handleWebhook(w http.ResponseWriter, r *http.Request) {
-	// Lógica del webhook
-	w.Write([]byte("Webhook recibido"))
+	w.Write([]byte("Webhook received"))
+}
+
+// @Summary Server Health Check
+// @Description This endpoint returns the health status of the server.
+// @Success 200 {string} string "Server is running"
+// @Router /health [get]
+func healthCheck(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("Server is running"))
 }
 
 func main() {

@@ -3,18 +3,18 @@ info:
 paths:
   /health:
     get:
-      description: Este endpoint devuelve el estado del servidor.
+      description: This endpoint returns the health status of the server.
       responses:
         "200":
-          description: Servidor en funcionamiento
+          description: Server is running
           schema:
             type: string
-      summary: Estado del servidor
+      summary: Server Health Check
   /webhook:
     post:
       consumes:
       - application/json
-      description: Este endpoint recibe un webhook y ejecuta una acción.
+      description: This endpoint receives a webhook and performs an action.
       parameters:
       - description: Webhook Payload
         in: body
@@ -26,12 +26,12 @@ paths:
       - application/json
       responses:
         "200":
-          description: Webhook recibido
+          description: Webhook received
           schema:
             type: string
         "400":
-          description: Error en el webhook
+          description: Webhook error
           schema:
             type: string
-      summary: Recibe el webhook
+      summary: Webhook Receiver
 swagger: "2.0"
